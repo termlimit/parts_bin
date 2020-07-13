@@ -38,6 +38,6 @@ Do you want to help with the development of PartsBin? Submit a pull request.
 
 ## Thank You
 
-I am grateful to DefPom, the original creator of the software.  As well as anyone who shares suggestions, issues, or pull requests.
+I am grateful to DefPom, the original creator of the software.  As well as anyone who shares suggestions, issues, or pull requests!
 
 **Termlimit
