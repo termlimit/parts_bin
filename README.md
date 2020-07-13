@@ -1,6 +1,6 @@
 # PartsBin
 
-## I recently saw MyPartsBin on https://www.mypartsbin.com/. There were some changes I wanted to make. Authentication, notes, project tracking, etc.  I forked the open source project and put it on GitHub to learn how to collaborate.
+I recently saw MyPartsBin on https://www.mypartsbin.com/. There were some changes I wanted to make. Authentication, notes, project tracking, etc.  I forked the open source project and put it on GitHub to learn how to collaborate.
 
 * [System requirements](#system-requirements)
 * [Install Parts Bin](#install-partsbin)
