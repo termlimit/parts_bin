@@ -582,17 +582,20 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 				echo "</tr>";
 
 			while($sql2 = mysqli_fetch_object($result2)) {
-				$deviceid					= $sql2 -> deviceid;
-				$devicenumber				= $sql2 -> devicenumber;
+				$deviceid				= $sql2 -> deviceid;
+				$devicenumber			= $sql2 -> devicenumber;
 				$devicepackage			= $sql2 -> devicepackage;
 				$devicetype				= $sql2 -> devicetype;
 				$devicedescription		= $sql2 -> devicedescription;
 				$devicequantity			= $sql2 -> devicequantity;
-				$devicepackaging			= $sql2 -> devicepackaging;
+				$devicepackaging		= $sql2 -> devicepackaging;
 				$devicebinlocation		= $sql2 -> devicebinlocation;
 				$devicelink				= $sql2 -> devicelink;
 				$datetime				= $sql2 -> datetime;
 				$project				= $sql2 -> project;
+				$notes					= $sql2 -> notes;
+				$listprice				= $sql2 -> listprice;
+				$currentprice			= $sql2 -> currentprice;
 
 				$datetimeview = date("g:ia D, d M Y", $datetime); // must NOT BE gmdate
 				$devicelinklist = "";
