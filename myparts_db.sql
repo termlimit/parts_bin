@@ -95,7 +95,7 @@ create table `users` (
   verified tinyint(1) DEFAULT 0 NOT NULL,
   activated smallint(5) UNSIGNED DEFAULT 0 NOT NULL,
   PRIMARY KEY (id),
-  KEY username (username),
+  KEY username (username)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
