@@ -54,7 +54,7 @@ include $path . "includes/pagehead.php";
 
 	echo "</ul>";
 	echo "<br>";
-	echo "<h3>Brought to you by The Defpom, visit <a href=\"https://www.MyPartsBin.com\" rel=\"nofollow\">MyPartsBin.com</a> OR <a href=\"https://www.thedefpom.com\" rel=\"nofollow\">The Defpom Site</a> OR <a href=\"https://www.youtube.com/TheDefpom\" rel=\"nofollow\">The Defpom YouTube Channel</a></h3>";
+	echo "<h3>Brought to you by Termlimit, visit <a href=\"https://github.com/termlimit/" rel=\"nofollow\">GitHub</a> OR <a href=\"https://www.thingiverse.com/termlimit\" rel=\"nofollow\">Thingiverse</a></h3>";
     ?>
 	<br>
 </div>

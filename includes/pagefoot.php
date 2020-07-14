@@ -1,5 +1,3 @@
-
-
 <hr>
 
 <?php
@@ -15,12 +13,10 @@ echo "</div>";
 
 echo "<br>";
 echo "<div class=\"sgc sg14\">";
-echo "<a href=\"https://www.MyPartsBin.com\">MyPartsBin.com</a> Open Source Release by The Defpom 2019-$currentyear $hostsitename <a href=\"https://www.TheDefpom.com\">TheDefpom.com</a>";
+echo "<a href=\"https://www.github.com/termlimit\">Termlimit GitHub</a> Open Source Release by The Termlimit 2020-$currentyear $hostsitename";
 echo "</div>";
 echo "<br>";
 ?>
-
-
 
 <br>
 

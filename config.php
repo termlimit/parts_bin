@@ -29,7 +29,7 @@ $sqltable_errorlog = "errorlog";
 // SITE CONFIGURATION STUFF
 ///////////////////////////
 //site name information
-$hostsitename = "MyPartsBin-Open Source";
+$hostsitename = "Parts Bin";
 
 
 

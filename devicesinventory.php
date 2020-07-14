@@ -33,11 +33,15 @@ $devicepackaging = strip_tags($_REQUEST["devicepackaging"]);
 $devicebinlocation = strip_tags($_REQUEST["devicebinlocation"]);
 $devicelink = strip_tags($_REQUEST["devicelink"]);
 $project = strip_tags($_REQUEST["project"]);
+$notes = strip_tags($_REQUEST["notes"]);
+$listprice = strip_tags($_REQUEST["listprice"]);
+$currentprice = strip_tags($_REQUEST["currentprice"]);
+$pricedate = strip_tags($_REQUEST["pricedate"]);
 $submitted = strip_tags($_REQUEST["submitted"]);
+$userid = strip_tags($_REQUEST["userid"]);
 $edit = strip_tags($_REQUEST["edit"]);
 $delete = strip_tags($_REQUEST["delete"]);
 $search = strip_tags($_REQUEST["search"]);
-
 
 /////// CONFIRMED WORKING
 // BEGIN CODE handle special characters to stop malicious users
@@ -51,7 +55,12 @@ $devicepackaging = htmlspecialchars($devicepackaging, ENT_QUOTES);
 $devicebinlocation = htmlspecialchars($devicebinlocation, ENT_QUOTES);
 $devicelink = htmlspecialchars($devicelink, ENT_QUOTES);
 $project = htmlspecialchars($project, ENT_QUOTES);
+$notes = htmlspecialchars($notes, ENT_QUOTES);
+$listprice = htmlspecialchars($listprice, ENT_QUOTES);
+$currentprice = htmlspecialchars($currentprice, ENT_QUOTES);
+$pricedate = htmlspecialchars($pricedate, ENT_QUOTES);
 $submitted = htmlspecialchars($submitted, ENT_QUOTES);
+$userid = htmlspecialchars($userid, ENT_QUOTES);
 $edit = htmlspecialchars($edit, ENT_QUOTES);
 $delete = htmlspecialchars($delete, ENT_QUOTES);
 $search = htmlspecialchars($search, ENT_QUOTES);
@@ -70,7 +79,12 @@ $devicepackaging = stripslashes($devicepackaging);
 $devicebinlocation = stripslashes($devicebinlocation);
 $devicelink = stripslashes($devicelink);
 $project = stripslashes($project);
+$notes = stripslashes($notes);
+$listprice = stripslashes($listprice);
+$currentprice = stripslashes($currentprice);
+$pricedate = stripslashes($pricedate);
 $submitted = stripslashes($submitted);
+$userid = stripslashes($userid);
 $edit = stripslashes($edit);
 $delete = stripslashes($delete);
 $search = stripslashes($search);
@@ -91,7 +105,12 @@ $devicepackaging = mysqli_real_escape_string($connection, $devicepackaging);
 $devicebinlocation = mysqli_real_escape_string($connection, $devicebinlocation);
 $devicelink = mysqli_real_escape_string($connection, $devicelink);
 $project = mysqli_real_escape_string($connection, $project);
+$notes = mysqli_real_escape_string($connection, $notes);
+$listprice = mysqli_real_escape_string($connection, $listprice);
+$currentprice = mysqli_real_escape_string($connection, $currentprice);
+$pricedate = mysqli_real_escape_string($connection, $pricedate);
 $submitted = mysqli_real_escape_string($connection, $submitted);
+$userid = mysqli_real_escape_string($connection, $userid);
 $edit = mysqli_real_escape_string($connection, $edit);
 $delete = mysqli_real_escape_string($connection, $delete);
 $search = mysqli_real_escape_string($connection, $search);
@@ -105,6 +124,7 @@ $submitted = (int)$submitted;
 $edit = (int)$edit;
 $delete = (int)$delete;
 $search = (int)$search;
+$userid = (int)$userid);
 ////////
 
 
@@ -118,6 +138,9 @@ $devicelink = trim($devicelink, " ");
 $devicepackaging = trim($devicepackaging, " ");
 $devicebinlocation = trim($devicebinlocation, " ");
 $project = trim($project, " ");
+$listprice = trim($listprice, " ");
+$currentprice = trim($currentprice, " ");
+$pricedate = trim($pricedate, " ");
 
 
 // turn on flag to show page as per normal (turns off when doing a delete)
@@ -197,15 +220,19 @@ if($edit == 1 && $deviceid != "0"){ // if its the beginning of an edit, look up 
 
 	if($num117 != 0){
 		while($sql117 = mysqli_fetch_object($result117)) {
-		   $devicenumber				= $sql117 -> devicenumber;
-		   $devicepackage				= $sql117 -> devicepackage;
+		   $devicenumber			= $sql117 -> devicenumber;
+		   $devicepackage			= $sql117 -> devicepackage;
 		   $devicetype				= $sql117 -> devicetype;
-		   $devicedescription			= $sql117 -> devicedescription;
+		   $devicedescription		= $sql117 -> devicedescription;
 		   $devicequantity			= $sql117 -> devicequantity;
 		   $devicepackaging			= $sql117 -> devicepackaging;
-		   $devicebinlocation			= $sql117 -> devicebinlocation;
+		   $devicebinlocation		= $sql117 -> devicebinlocation;
 		   $devicelink				= $sql117 -> devicelink;
 		   $project					= $sql117 -> project;
+		   $notes					= $sql117 -> notes;
+		   $listprice				= $sql117 -> listprice;
+		   $currentprice			= $sql117 -> currentprice;
+		   $pricedate				= $sql117 -> pricedate;
 		}
 		$edit = 2;
 	}
@@ -226,6 +253,10 @@ if($submitted == 1 && $devicenumber != "" && $search == 0){ // only action the s
 					`devicebinlocation` = '$devicebinlocation',
 					`devicelink` = '$devicelink',
 					`project` = '$project',
+					`notes` = '$notes',
+					`listprice` = '$listprice',
+					`currentprice` = '$currentprice',
+					`pricedate` = '$pricedate',
 					`datetime` = '$timestamp'
 					WHERE `deviceid` = '$deviceid' LIMIT 1"; //could be a problem, using SESSION OR POST is a security issue !!
 
@@ -255,6 +286,10 @@ if($submitted == 1 && $devicenumber != "" && $search == 0){ // only action the s
 						'$devicebinlocation',
 						'$devicelink',
 						'$project',
+						'$notes',
+						'$listprice',
+						'$currentprice',
+						'$pricedate',
 						'$timestamp',
 						'$spare'
 						)";
@@ -287,6 +322,10 @@ if($submitted == 1 && $devicenumber != "" && $search == 0){ // only action the s
 	$devicebinlocation = "";
 	$devicelink = "";
 	$project = "";
+	$notes = "";
+	$listprice = "";
+	$currentprice = "";
+	$pricedate = "";
 }
 else if($submitted == 1 && $devicenumber == "" && $search == 0){
 	$message = "You need to specify a device number to add a device";
@@ -426,7 +465,7 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 					echo "<td width=\"5%\" align=\"left\">Packaging</td>";
 					echo "<td width=\"10%\" align=\"left\">Project</td>";
 					echo "<td width=\"15%\" align=\"left\">Link</td>";
-					echo "<td width=\"15%\" align=\"left\">$submitbuttontext $searchheadertext device</td>";
+					echo "<td width=\"15%\" align=\"left\">List Price</td>";
 				echo "</tr>";
 
 				echo "<tr>";
@@ -439,6 +478,20 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 					echo "<td align=\"left\" class=\"sg13\"><select name=\"devicepackaging\" id=\"devicepackaging\" title=\"Enter the devices packaging type.\">$devicepackagingselect</select></td>";
 					echo "<td align=\"left\" class=\"sg13\"><input name=\"project\" id=\"project\" class=\"autowidth\" maxlength=\"60\" value=\"$project\" title=\"Enter the devices associated project.\"></td>";
 					echo "<td align=\"left\" class=\"sg13\"><input name=\"devicelink\" id=\"devicelink\" class=\"autowidth\" maxlength=\"230\" value=\"$devicelink\" title=\"Enter the devices supplier or datasheet links.\"></td>";
+					echo "<td align=\"left\" class=\"sg13\"><input name=\"listprice\" id=\"listprice\" class=\"autowidth\" maxlength=\"22\" VALUE=\"$listprice\" title=\"Enter the list price.\"></td>";
+				echo "</tr>";
+
+				echo "<tr>";
+					echo "<td colspan=5 width=\"42%\" align=\"left\">Notes</td>";
+					echo "<td colspan=2 width=\"10%\" align=\"left\">Current Price</td>";
+					echo "<td colspan=2 width=\"25%\" align=\"left\">Price Effective Date</td>";
+					echo "<td width=\"15%\" align=\"left\">$submitbuttontext $searchheadertext device</td>";
+				echo "</tr>";
+
+				echo "<tr>";
+					echo "<td colspan=5 align=\"left\" class=\"sg13\"><input name=\"notes\" id=\"notes\" class=\"autowidth\" value=\"$notes\" title=\"Enter notes for the device.\"></td>";
+					echo "<td colspan=2 align=\"left\" class=\"sg13\"><input name=\"currentprice\" id=\"currentprice\" class=\"autowidth\" maxlength=\"22\" value=\"$currentprice\" title=\"Enter the current price of the device.\"></td>";
+					echo "<td colspan=2 align=\"left\" class=\"sg13\"><input name=\"pricedate\" id=\"pricedate\" class=\"autowidth\" maxlength=\"22\" value=\"$pricedate\" title=\"Enter the effective date of the price.\"></td>";
 					echo "<td align=\"left\" class=\"sg13\"><input type=\"submit\" name=\"submit\" id=\"submit\" class=\"submitbutton\" VALUE=\"$submitbuttontext\" style=\"font-family: Tahoma\"> $searchbutton</td>";
 				echo "</tr>";
 			echo "</table>";
@@ -480,6 +533,15 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 			if($project != ""){
 				$sqlsearch = $sqlsearch . "AND `project` LIKE '%$project%'";
 			}
+			if($listprice != ""){
+				$sqlsearch = $sqlsearch . "AND `listprice` LIKE '%$listprice%'";
+			}
+			if($currentprice != ""){
+				$sqlsearch = $sqlsearch . "AND `currentprice` LIKE '%$currentprice%'";
+			}
+			if($pricedate != ""){
+				$sqlsearch = $sqlsearch . "AND `pricedate` LIKE '%$pricedate%'";
+			}
 			if($devicelink != ""){
 				$sqlsearch = $sqlsearch . "AND `devicelink` LIKE '%$devicelink%'";
 			}
@@ -512,7 +574,9 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 					echo "<td width=\"5%\" align=\"left\">Quantity</td>";
 					echo "<td width=\"5%\" align=\"left\">Packaging</td>";
 					echo "<td width=\"10%\" align=\"left\">Project</td>";
-					echo "<td width=\"15%\" align=\"left\">Link</td>";
+					echo "<td width=\"5%\" align=\"left\">Link</td>";
+					echo "<td width=\"5%\" align=\"left\">List\Current Price</td>";
+					echo "<td width=\"5%\" align=\"left\">Effective Price Date</td>";
 					echo "<td width=\"15%\" align=\"left\">Last Updated</td>";
 				echo "</tr>";
 
@@ -566,6 +630,8 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 					echo "<td align=\"left\" class=\"sg12\">$devicepackaging</td>";
 					echo "<td align=\"left\" class=\"sg12\">$project</td>";
 					echo "<td align=\"left\" class=\"sg12\">$devicelinklistfull</td>";
+					echo "<td align=\"left\" class=\"sg12\">$listprice \ $currentprice</td>";
+					echo "<td align=\"left\" class=\"sg12\">$pricedate</td>";
 					echo "<td align=\"left\" class=\"sg10\">$datetimeview</td>";
 				echo "</tr>";
 			}
