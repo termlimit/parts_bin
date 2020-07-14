@@ -124,7 +124,7 @@ $submitted = (int)$submitted;
 $edit = (int)$edit;
 $delete = (int)$delete;
 $search = (int)$search;
-$userid = (int)$userid);
+$userid = (int)$userid;
 ////////
 
 
