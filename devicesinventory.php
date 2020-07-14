@@ -291,6 +291,7 @@ if($submitted == 1 && $devicenumber != "" && $search == 0){ // only action the s
 						'$currentprice',
 						'$pricedate',
 						'$timestamp',
+						0,
 						'$spare'
 						)";
 
