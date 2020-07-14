@@ -596,6 +596,7 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 				$notes					= $sql2 -> notes;
 				$listprice				= $sql2 -> listprice;
 				$currentprice			= $sql2 -> currentprice;
+				$pricedate				= $sql2 -> pricedate;
 
 				$datetimeview = date("g:ia D, d M Y", $datetime); // must NOT BE gmdate
 				$devicelinklist = "";
@@ -634,7 +635,7 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 					echo "<td align=\"left\" class=\"sg12\">$devicepackaging</td>";
 					echo "<td align=\"left\" class=\"sg12\">$project</td>";
 					echo "<td align=\"left\" class=\"sg12\">$devicelinklistfull</td>";
-					echo "<td align=\"left\" class=\"sg12\">$listprice \ $currentprice</td>";
+					echo "<td align=\"left\" class=\"sg12\">$listprice</td>";
 					echo "<td align=\"left\" class=\"sg12\">$pricedate</td>";
 					echo "<td align=\"left\" class=\"sg10\">$datetimeview</td>";
 				echo "</tr>";
