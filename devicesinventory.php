@@ -599,6 +599,7 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 				$pricedate				= $sql2 -> pricedate;
 
 				$datetimeview = date("g:ia D, d M Y", $datetime); // must NOT BE gmdate
+				$pricedate = date("d M Y", $pricedate);
 				$devicelinklist = "";
 				$devicelinklistfull = "";
 
