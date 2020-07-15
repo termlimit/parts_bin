@@ -1,14 +1,4 @@
 <?php
-
-mb_internal_encoding("UTF-8");
-mb_http_output('UTF-8');
-mb_http_input('UTF-8');
-mb_regex_encoding('UTF-8');
-//echo mb_internal_encoding();
-//echo mb_http_output();
-
-error_reporting(~E_ALL & ~E_NOTICE & ~E_WARNING);
-
 ///////////////
 // DB INFO
 $server = "localhost"; // db server 127.0.0.1 may also work, if you have a dedicated server then use its local IP address.
@@ -17,6 +7,7 @@ $database_username = ""; // db username
 $database_password = ""; // db password
 // END DB INFO
 ///////////////
+
 
 //////////////
 // BEGIN TABLE CONVERSIONS
@@ -30,7 +21,6 @@ $sqltable_errorlog = "errorlog";
 ///////////////////////////
 //site name information
 $hostsitename = "Parts Bin";
-
 
 
 ////////////////////////////
