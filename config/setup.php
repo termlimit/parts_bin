@@ -7,11 +7,11 @@
 */
 require __DIR__ . '/../src/Autophp/Autoloader.php';
 
-use ORM\MySqliDB;
-
 // INSTANCE OPTION: create the instance and register the method with SPL
 $autoloader = new \Autophp\Autoloader();
 spl_autoload_register(array($autoloader, 'load'));
+
+use ORM\MySqliDB;
 
 // You can remove this if you are confident you have intl installed.
 if (!extension_loaded('intl')) {
