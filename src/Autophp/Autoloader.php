@@ -27,7 +27,7 @@ class Autoloader
 		$subpath .= str_replace('_', DIRECTORY_SEPARATOR, $class);
 
 		// the path to our central class directory location
-		$dir = '/src';
+		$dir = $_SERVER["DOCUMENT_ROOT"] . '/src';
 
 		// prefix with the central directory location and suffix with .php,
 		// then require it.
