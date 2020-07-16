@@ -7,7 +7,7 @@
 */
 require __DIR__ . '/../src/Autophp/Autoloader.php';
 
-use src\ORM\MySqliDB;
+use ORM\MySqliDB;
 
 // INSTANCE OPTION: create the instance and register the method with SPL
 $autoloader = new \Autophp\Autoloader();
