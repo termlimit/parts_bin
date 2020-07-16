@@ -6,11 +6,6 @@ class Autoloader
 	// an instance method alternative
 	public function load($class)
 	{
-		if (class_exists($class))
-		{
-			return $class;
-		}
-
 		// ... the same code as in the global function ...
 		// strip off any leading namespace separator from PHP 5.3
 		$class = ltrim($class, '\\');
