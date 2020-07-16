@@ -7,6 +7,8 @@
 */
 require __DIR__ . '/../src/Autophp/Autoloader.php';
 
+use src\ORM\MySqliDB;
+
 // INSTANCE OPTION: create the instance and register the method with SPL
 $autoloader = new \Autophp\Autoloader();
 spl_autoload_register(array($autoloader, 'load'));
@@ -187,6 +189,6 @@ $ip = mysqli_real_escape_string($ip); // block IP address SQL injection - can ha
 
 // BEGIN CODE db connection and check
 //make the connection to the database
-$mysqli = new MySqliDB($server, $database_username, $database_password, $database_name);
+$mysqli = new ORM\MySqliDB($server, $database_username, $database_password, $database_name);
 //$database = @mysqli_select_db($connection,$database_name) or die("UNABLE TO CONNECT TO DB");
 ///////
