@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/config/setup.php';
+$path = ""; // add ../ to increase levels eg $path = "../"; if this page is in a subdirectory
 
 /////// CONFIRMED WORKING
 // BEGIN CODE handle special characters to stop malicious users

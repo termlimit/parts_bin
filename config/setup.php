@@ -61,7 +61,7 @@ $database_username = ""; // db username
 $database_password = ""; // db password
 // END DB INFO
 ///////////////
-require __DIR__ . 'setup_local.php';
+require __DIR__ . '/setup_local.php';
 
 
 //////////////
