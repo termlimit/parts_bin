@@ -188,7 +188,7 @@ $ip = trim($ip); // remove any whitespace at beginning and end.
 
 // BEGIN CODE db connection and check
 //make the connection to the database
-$mysqli = new ORM\MySqliDB($server, $database_username, $database_password, $database_name);
+$mysqli = new MySqliDB($server, $database_username, $database_password, $database_name);
 //$database = @mysqli_select_db($connection,$database_name) or die("UNABLE TO CONNECT TO DB");
 ///////
 
