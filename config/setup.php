@@ -11,7 +11,7 @@ require __DIR__ . '/../src/Autophp/Autoloader.php';
 $autoloader = new \Autophp\Autoloader();
 spl_autoload_register(array($autoloader, 'load'));
 
-use MySqliDB;
+use ORM\MySqliDB;
 
 // You can remove this if you are confident you have intl installed.
 if (!extension_loaded('intl')) {
