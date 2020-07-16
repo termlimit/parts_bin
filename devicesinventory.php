@@ -77,25 +77,25 @@ $search = stripslashes($search);
 
 /////// CONFIRMED WORKING
 // BEGIN CODE handle special characters to stop malicious users
-$deviceid = mysqli_real_escape_string($connection, $deviceid);
-$devicenumber = mysqli_real_escape_string($connection, $devicenumber);
-$devicepackage = mysqli_real_escape_string($connection, $devicepackage);
-$devicetype = mysqli_real_escape_string($connection, $devicetype);
-$devicedescription = mysqli_real_escape_string($connection, $devicedescription);
-$devicequantity = mysqli_real_escape_string($connection, $devicequantity);
-$devicepackaging = mysqli_real_escape_string($connection, $devicepackaging);
-$devicebinlocation = mysqli_real_escape_string($connection, $devicebinlocation);
-$devicelink = mysqli_real_escape_string($connection, $devicelink);
-$project = mysqli_real_escape_string($connection, $project);
-$notes = mysqli_real_escape_string($connection, $notes);
-$listprice = mysqli_real_escape_string($connection, $listprice);
-$currentprice = mysqli_real_escape_string($connection, $currentprice);
-$pricedate = mysqli_real_escape_string($connection, $pricedate);
-$submitted = mysqli_real_escape_string($connection, $submitted);
-$userid = mysqli_real_escape_string($connection, $userid);
-$edit = mysqli_real_escape_string($connection, $edit);
-$delete = mysqli_real_escape_string($connection, $delete);
-$search = mysqli_real_escape_string($connection, $search);
+$deviceid = $mysqli->real_escape_string($deviceid);
+$devicenumber = $mysqli->real_escape_string($devicenumber);
+$devicepackage = $mysqli->real_escape_string($devicepackage);
+$devicetype = $mysqli->real_escape_string($devicetype);
+$devicedescription = $mysqli->real_escape_string($devicedescription);
+$devicequantity = $mysqli->real_escape_string($devicequantity);
+$devicepackaging = $mysqli->real_escape_string($devicepackaging);
+$devicebinlocation = $mysqli->real_escape_string($devicebinlocation);
+$devicelink = $mysqli->real_escape_string($devicelink);
+$project = $mysqli->real_escape_string($project);
+$notes = $mysqli->real_escape_string($notes);
+$listprice = $mysqli->real_escape_string($listprice);
+$currentprice = $mysqli->real_escape_string($currentprice);
+$pricedate = $mysqli->real_escape_string($pricedate);
+$submitted = $mysqli->real_escape_string($submitted);
+$userid = $mysqli->real_escape_string($userid);
+$edit = $mysqli->real_escape_string($edit);
+$delete = $mysqli->real_escape_string($delete);
+$search = $mysqli->real_escape_string($search);
 // END CODE
 //////
 
@@ -146,26 +146,26 @@ if ($delete == 2 && $deviceid != ""){
 	//////////////
 	//build and issue the query
 	$sql133 ="SELECT * FROM `$sqltable_devices_inventory` WHERE `deviceid` = '$deviceid'"; // make sure that the image is real, and not a hack attempt.
-	$result133 = @mysqli_query($connection,$sql133);// or die("Some Error Occured 5");//die(mysqli_error());
+	$result133 = $mysqli->query($sql133);
 
     if (!$result133){
     	$errorsql = addslashes($sql133);
-    	$errormsg = addslashes(mysqli_error($connection));
-    	$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
+    	$errormsg = addslashes($mysqli->connect_error);
+    	$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
     	die("An Error Occurred, the error has been logged for the admin to investigate.");
     }
 
 	//get the number of rows in the result set
-	$num133 = mysqli_num_rows($result133);
+	$num133 = $result133->num_rows;
 
 	if ($num133 != 0){
 		$sql134a = "DELETE FROM `$sqltable_devices_inventory` WHERE `deviceid` = '$deviceid' LIMIT 1";
-		$result134a = @mysqli_query($connection,$sql134a);// or die("Some Error Occured 3");//die(mysqli_error());
+		$result134a = $mysqli->query($sql134a);
 
 		if (!$result134a){
 			$errorsql = addslashes($sql134a);
-			$errormsg = addslashes(mysqli_error($connection));
-			$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
+			$errormsg = addslashes($mysqli->connect_error);
+			$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
 			die("An Error Occurred, the error has been logged for the admin to investigate.");
 		}
 	}
@@ -188,20 +188,20 @@ include $path . "includes/pagehead.php";
 // action lookup from the link
 if($edit == 1 && $deviceid != "0"){ // if its the beginning of an edit, look up the entry to fill in the form
 	$sql117 ="SELECT * FROM `$sqltable_devices_inventory` WHERE `deviceid` = '$deviceid' LIMIT 1"; // make sure that the listing is in progress, to help prevent it being hacked !
-	$result117 = @mysqli_query($connection,$sql117);// or die("Some Error Occured");//die(mysqli_error());
+	$result117 = $mysqli->query($sql117);
 
 	if (!$result117){
 		$errorsql = addslashes($sql117);
-		$errormsg = addslashes(mysqli_error($connection));
-		$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
+		$errormsg = addslashes($mysqli->connect_error);
+		$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
 		die("An Error Occurred, the error has been logged for the admin to investigate.");
 	}
 
 	//get the number of rows in the result set
-	$num117 = mysqli_num_rows($result117);
+	$num117 = $result117->num_rows;
 
 	if($num117 != 0){
-		while($sql117 = mysqli_fetch_object($result117)) {
+		while($sql117 = $result117->fetch_object()) {
 		   $devicenumber			= $sql117 -> devicenumber;
 		   $devicepackage			= $sql117 -> devicepackage;
 		   $devicetype				= $sql117 -> devicetype;
@@ -242,16 +242,16 @@ if($submitted == 1 && $devicenumber != "" && $search == 0){ // only action the s
 					`datetime` = '$timestamp'
 					WHERE `deviceid` = '$deviceid' LIMIT 1"; //could be a problem, using SESSION OR POST is a security issue !!
 
-		$result118 = @mysqli_query($connection,$sql118);// or die("Some Error Occured");//die(mysqli_error());
+		$result118 = $mysqli->query($sql118);
 
 		if (!$result118){
 			$errorsql = addslashes($sql118);
-			$errormsg = addslashes(mysqli_error($connection));
-			$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
+			$errormsg = addslashes($mysqli->connect_error);
+			$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
 			die("An Error Occurred, the error has been logged for the admin to investigate.");
 		}
 		else{
-			$message = "Sucessfully Updated $devicenumber In Inventory";
+			$message = "Successfully Updated $devicenumber In Inventory";
 		}
 	}
 	else{ // if its a new entry then add it
@@ -278,12 +278,12 @@ if($submitted == 1 && $devicenumber != "" && $search == 0){ // only action the s
 						)";
 
 
-		$result119 = @mysqli_query($connection,$sql119);// or die("Some Error Occured");//die(mysqli_error());
+		$result119 = $mysqli->query($sql119);
 
 		if (!$result119){
 			$errorsql = addslashes($sql119);
-			$errormsg = addslashes(mysqli_error($connection));
-			$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
+			$errormsg = addslashes($mysqli->connect_error);
+			$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
 			die("An Error Occurred, the error has been logged for the admin to investigate. CODE 6");
 		}
 		else{
@@ -534,17 +534,17 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 		echo "<br>";
 
 		$sql2 ="SELECT * FROM `$sqltable_devices_inventory` WHERE `devicenumber` != '' $sqlgetid $sqlsearch"; // make sure that the listing is in progress, to help prevent it being hacked !
-		$result2 = mysqli_query($connection,$sql2);// or die("Some Error Occured");//die(mysqli_error());
+		$result2 = $mysqli->query($sql2);
 
 		if (!$result2){
 			$errorsql = addslashes($sql2);
-			$errormsg = addslashes(mysqli_error($connection));
-			$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
+			$errormsg = addslashes($mysqli->connect_error);
+			$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '', '$ip')");
 			die("An Error Occurred, the error has been logged for the admin to investigate.");
 		}
 
 		//get the number of rows in the result set
-		$num2 = mysqli_num_rows($result2);
+		$num2 = $result2->num_rows;
 
 		if($num2 != 0){
 			echo "<table width=\"100%\" class=\"bgcolour6 sg13\" border=\"1\">";
@@ -563,7 +563,7 @@ else if($submitted == 1 && $devicenumber == "" && $search == 0){
 					echo "<td width=\"15%\" align=\"left\">Last Updated</td>";
 				echo "</tr>";
 
-			while($sql2 = mysqli_fetch_object($result2)) {
+			while($sql2 = $result2->fetch_object()) {
 				$deviceid				= $sql2 -> deviceid;
 				$devicenumber			= $sql2 -> devicenumber;
 				$devicepackage			= $sql2 -> devicepackage;

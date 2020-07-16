@@ -187,6 +187,6 @@ $ip = mysqli_real_escape_string($ip); // block IP address SQL injection - can ha
 
 // BEGIN CODE db connection and check
 //make the connection to the database
-$connection = @mysqli_connect($server, $database_username, $database_password,$database_name) or die(mysqli_error());
+$mysqli = new MySqliDB($server, $database_username, $database_password, $database_name);
 //$database = @mysqli_select_db($connection,$database_name) or die("UNABLE TO CONNECT TO DB");
 ///////

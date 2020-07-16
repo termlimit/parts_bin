@@ -26,34 +26,33 @@ $deleteentry = (int)$deleteentry;
 if ($deleteerror == 1){
 	//make query to the database
 	$sql1213 ="SELECT * FROM $sqltable_errorlog WHERE `datetime` = '$deleteentry'";
-	$result1213 = @mysqli_query($connection,$sql1213); // or die(mysqli_error());
+	$result1213 = $mysqli->query($sql1213);
 
 	if (!$result1213){
 		$errorsql = addslashes($sql1213);
-		$errormsg = addslashes(mysqli_error($connection));
-		$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '$_SESSION[firstname] $_SESSION[lastname]', '$ip')");
+		$errormsg = addslashes($mysqli->connect_error);
+		$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '$_SESSION[firstname] $_SESSION[lastname]', '$ip')");
 		die("An Error Occurred, the error has been logged for the admin to investigate.");
 	}
 
 	//get the number of rows in the result set
-	$num1213 = mysqli_num_rows($result1213);
+	$num1213 = $result1213->num_rows;
 
 	//print a message or redirect elsewhere,based on result
 	if ($num1213 != 0){
 		$sql1214 = "DELETE FROM $sqltable_errorlog WHERE `datetime` = '$deleteentry' LIMIT 1";
-		$result1214 = @mysqli_query($connection,$sql1214); // or die(mysqli_error());
+		$result1214 = $mysqli->query($sql1214);
 
 		if (!$result1214){
 			$errorsql = addslashes($sql1214);
-			$errormsg = addslashes(mysqli_error($connection));
-			$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '$_SESSION[firstname] $_SESSION[lastname]', '$ip')");
+			$errormsg = addslashes($mysqli->connect_error);
+			$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '$_SESSION[firstname] $_SESSION[lastname]', '$ip')");
 			die("An Error Occurred, the error has been logged for the admin to investigate.");
 		}
 
 		echo "<p>The error entry has been deleted</p>";
-	}else{
-
-	echo "<p>Entry could not be found for deletion.</p>";
+	} else {
+		echo "<p>Entry could not be found for deletion.</p>";
 	}
 	$deleteerror = 0;
 }
@@ -81,17 +80,17 @@ include $path . "includes/pagehead.php";
 /////////////////
 //BEGIN CODE get image table display
 $sql217 ="SELECT * FROM `$sqltable_errorlog`";
-$result217 = @mysqli_query($connection,$sql217); // or die("Some Error Occured");//die(mysqli_error());
+$result217 = $mysqli->query($sql217);
 
 if (!$result217){
 	$errorsql = addslashes($sql217);
-	$errormsg = addslashes(mysqli_error($connection));
-	$errorlog = mysqli_query($connection,"INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '$_SESSION[firstname] $_SESSION[lastname]', '$ip')");
+	$errormsg = addslashes($mysqli->connect_error);
+	$errorlog = $mysqli->query("INSERT INTO `$sqltable_errorlog` VALUES ('$_SERVER[PHP_SELF]', '$errormsg', '$errorsql', '$timestamp', '$_SESSION[firstname] $_SESSION[lastname]', '$ip')");
 	die("An Error Occurred, the error has been logged for the admin to investigate.");
 }
 
 //get the number of rows in the result set
-$num217 = mysqli_num_rows($result217);
+$num217 = $result217->num_rows;
 
 if ($num217 != 0) {
 	$bgcolor = "row1colour"; // set initial background colour
@@ -105,7 +104,7 @@ if ($num217 != 0) {
 	echo "<td align=\"center\" width=\"15%\">Date Time</td>";
 	echo "</tr>";
 
-	while ($sql217 = mysqli_fetch_object($result217)) {
+	while ($sql217 = $result217->fetch_object()) {
 		if($bgcolor=="row1colour"){
 			$bgcolor="row2colour";
 		}else{
