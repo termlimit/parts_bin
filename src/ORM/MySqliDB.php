@@ -7,7 +7,7 @@ class MySqliDB
 	{
 		// Connecting to and selecting a MySQL database named sakila
 		// Hostname: 127.0.0.1, username: your_user, password: your_pass, db: sakila
-		$mysqli = new mysqli($server, $database_username, $database_password, $database_name);
+		$mysqli = mysqli_connect($server, $database_username, $database_password, $database_name);
 
 		// Oh no! A connect_errno exists so the connection attempt failed!
 		if ($mysqli->connect_errno) {
