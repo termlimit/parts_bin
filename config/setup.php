@@ -184,7 +184,6 @@ else {
 	$ip = $_SERVER['REMOTE_ADDR'];
 }
 $ip = trim($ip); // remove any whitespace at beginning and end.
-$ip = mysqli_real_escape_string($ip); // block IP address SQL injection - can happen by user sent HTTP_X_FORWARDED_FOR headers.
 
 
 // BEGIN CODE db connection and check
@@ -192,3 +191,5 @@ $ip = mysqli_real_escape_string($ip); // block IP address SQL injection - can ha
 $mysqli = new ORM\MySqliDB($server, $database_username, $database_password, $database_name);
 //$database = @mysqli_select_db($connection,$database_name) or die("UNABLE TO CONNECT TO DB");
 ///////
+
+$ip = $mysqli->real_escape_string($ip); // block IP address SQL injection - can happen by user sent HTTP_X_FORWARDED_FOR headers.
