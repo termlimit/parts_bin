@@ -3,7 +3,7 @@ namespace ORM;
 
 class MySqliDB
 {
-	public function __construct($server, $database_username, $database_password, $database_name)
+	public static function connect($server, $database_username, $database_password, $database_name)
 	{
 		// Connecting to and selecting a MySQL database named sakila
 		// Hostname: 127.0.0.1, username: your_user, password: your_pass, db: sakila
