@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/bootstrap.php';
 
-use App\ORM\MySqliDB;
+//use App\ORM\MySqliDB;
 
 // turn on output buffering, to speed up php processing, and use gzip compression for sending the files !
 ini_set('zlib.output_compression_level', 3);
@@ -173,7 +173,7 @@ $ip = trim($ip); // remove any whitespace at beginning and end.
 
 // BEGIN CODE db connection and check
 //make the connection to the database
-$mysqli = MySqliDB::connect($server, $database_username, $database_password, $database_name);
+$mysqli = \ORM\MySqliDB::connect($server, $database_username, $database_password, $database_name);
 //$database = @mysqli_select_db($connection,$database_name) or die("UNABLE TO CONNECT TO DB");
 ///////
 
