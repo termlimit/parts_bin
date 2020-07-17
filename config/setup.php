@@ -1,22 +1,7 @@
 <?php
-/*
-|--------------------------------------------------------------------------
-| Register The Auto Loader
-|--------------------------------------------------------------------------
-|
-*/
-require __DIR__ . '/../src/Autophp/Autoloader.php';
-
-// INSTANCE OPTION: create the instance and register the method with SPL
-$autoloader = new \Autophp\Autoloader();
-spl_autoload_register(array($autoloader, 'load'));
+require dirname(__DIR__) . '/config/bootstrap.php';
 
 use ORM\MySqliDB;
-
-// You can remove this if you are confident you have intl installed.
-if (!extension_loaded('intl')) {
-    trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
-}
 
 // turn on output buffering, to speed up php processing, and use gzip compression for sending the files !
 ini_set('zlib.output_compression_level', 3);

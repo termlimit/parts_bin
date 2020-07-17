@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/config/setup.php';
+require dirname(__DIR__) . '/config/setup.php';
+
 $path = ""; // add ../ to increase levels eg $path = "../"; if this page is in a subdirectory
 
 $pagesubtitle = "Welcome";
