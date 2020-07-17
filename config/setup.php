@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/config/bootstrap.php';
+require __DIR__ . '/paths.php';
 
 use App\ORM\MySqliDB;
 
