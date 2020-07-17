@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/paths.php';
 
-use App\ORM\MySqliDB;
+//use App\ORM\MySqliDB;
 
 // turn on output buffering, to speed up php processing, and use gzip compression for sending the files !
 ini_set('zlib.output_compression_level', 3);
