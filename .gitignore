@@ -1,3 +1,5 @@
 parts_bin.code-workspace
 config.php
 config/setup_local.php
+vendor
+composer.phar
