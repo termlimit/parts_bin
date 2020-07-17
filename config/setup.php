@@ -1,7 +1,22 @@
 <?php
-require __DIR__ . '/bootstrap.php';
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+*/
+require __DIR__ . '/../src/Autophp/Autoloader.php';
 
-//use App\ORM\MySqliDB;
+// INSTANCE OPTION: create the instance and register the method with SPL
+$autoloader = new \Autophp\Autoloader();
+spl_autoload_register(array($autoloader, 'load'));
+
+use ORM\MySqliDB;
+
+// You can remove this if you are confident you have intl installed.
+if (!extension_loaded('intl')) {
+    trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
+}
 
 // turn on output buffering, to speed up php processing, and use gzip compression for sending the files !
 ini_set('zlib.output_compression_level', 3);
@@ -173,7 +188,7 @@ $ip = trim($ip); // remove any whitespace at beginning and end.
 
 // BEGIN CODE db connection and check
 //make the connection to the database
-$mysqli = \ORM\MySqliDB::connect($server, $database_username, $database_password, $database_name);
+$mysqli = MySqliDB::connect($server, $database_username, $database_password, $database_name);
 //$database = @mysqli_select_db($connection,$database_name) or die("UNABLE TO CONNECT TO DB");
 ///////
 
