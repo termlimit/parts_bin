@@ -1,4 +1,7 @@
 parts_bin.code-workspace
-config/app.php
+config/
 vendor
 composer.phar
+plugins/
+tmp/
+logs/
