@@ -1,0 +1,1 @@
+The view page has two sections, the chart and transactions.  The chart displays your running account balance for the period you selected.  The transactions list all of the transactions for this account during the period you selected.  It also displays your beginning and ending account balances.

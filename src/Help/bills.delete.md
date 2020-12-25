@@ -1,0 +1,1 @@
+Delete the bill. Any related transactions will NOT be removed.  It will confirm that you want to delete.

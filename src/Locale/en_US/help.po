@@ -1,0 +1,54 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+
+#: Controller/AppController.php:82
+msgid "main-content-title"
+msgstr "Welcome to Loaded Finance"
+
+msgid "main-content-text"
+msgstr "Do yourself a favor and follow this short guide to make sure you know your way around."
+
+msgid "sidebar-toggle-title"
+msgstr "Sidebar to create stuff"
+
+msgid "sidebar-toggle-text"
+msgstr "Hidden under the plus icon are all the buttons to create new stuff. Accounts, transactions, everything!"
+
+msgid "account-menu-title"
+msgstr "All your accounts"
+
+msgid "account-menu-text"
+msgstr "Here you can find all the accounts you've made."
+
+msgid "budget-menu-title"
+msgstr "Budgets"
+
+msgid "budget-menu-text"
+msgstr "Use this page to organise your finances and limit spending."
+
+msgid "report-menu-title"
+msgstr "Reports"
+
+msgid "report-menu-text"
+msgstr "Check this out when you want a solid overview of your fiances."
+
+msgid "transaction-menu-title"
+msgstr "Transactions"
+
+msgid "transaction-menu-text"
+msgstr "All transactions you've created can be found here."
+
+msgid "option-menu-title"
+msgstr "Options"
+
+msgid "option-menu-text"
+msgstr "This is pretty self-explanatory."
+
+msgid "main-content-end-title"
+msgstr "The end!"
+
+msgid "main-content-end-text"
+msgstr "Remember that every page has a small question mark at the right top. Click it to get help about the page you're on."

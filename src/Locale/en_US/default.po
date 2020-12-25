@@ -1,0 +1,12 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+
+#: Controller/AppController.php:82
+msgid "test"
+msgstr "Test out translation and string swapping"
+
+msgid "accounts_required_budget"
+msgstr "You must have at least one asset account to start budgeting."

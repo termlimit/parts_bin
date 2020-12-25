@@ -1,0 +1,11 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+
+msgid "Welcome to LoadedFinance.com"
+msgstr ""
+
+msgid "Click here to install in English"
+msgstr ""

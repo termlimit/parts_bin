@@ -1,0 +1,1 @@
+If you delete an account, the system will warn you if there are any transactions the depend on this account.  The default action is to soft delete the account, mark it as deleted, however you can further remove the account from the system, but it will also remove any transactions associated with that account.

@@ -3,5 +3,6 @@ config/
 vendor
 composer.phar
 plugins/
+tests/
 tmp/
 logs/

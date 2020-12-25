@@ -1,0 +1,228 @@
+.skin-green .main-header .logo {
+	background-color: #18472D;
+}
+.checkbox, .radio {
+    position: relative;
+    display: block;
+	padding-top:4px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.form-horizontal .checkbox, .form-horizontal .radio {
+	min-height: 23px;
+}
+.form-horizontal .checkbox, .form-horizontal .checkbox-inline, .form-horizontal .radio, .form-horizontal .radio-inline {
+	padding-top: 0;
+	margin-top: 2px;
+	margin-bottom: 0;
+}
+
+.general-chart-error {height:30px;background:url('/img/error.png') no-repeat center center;}
+
+/* sliding panel */
+#toppanel {
+    /*position: absolute;*/   /*Panel will overlap  content */
+    position: relative;   /*Panel will "push" the content down */
+	/*top: 0;*/
+    width: 100%;
+    z-index: 999;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#panel {
+	width: 100%;
+	height: 450px;
+	color: #999999;
+	/*background: #272727;*/
+	background: url('/img/slide/ledger.jpg') no-repeat left 0;
+	overflow: hidden;
+	position: relative;
+	z-index: 100;
+	/*display: none;*/
+}
+
+#panel h1 {
+	font-size: 1.6em;
+	padding: 5px 0 10px;
+	margin: 0;
+	color: white;
+}
+
+#panel h2{
+	font-size: 1.2em;
+	padding: 10px 0 5px;
+	margin: 0;
+	color: white;
+}
+
+#panel p {
+	margin: 5px 0;
+	padding: 0;
+}
+
+#panel a {
+	text-decoration: none;
+	color: #15ADFF;
+}
+
+#panel a:hover {
+	color: white;
+}
+
+#panel a-lost-pwd {
+	display: block;
+	float: left;
+}
+
+#panel .content {
+	width: 1024px;
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 15px;
+	text-align: left;
+	font-size: 0.85em;
+}
+
+#panel .content .left {
+	width: 225px;
+	float: left;
+	padding: 0 5px;
+	border-left: 1px solid #333;
+}
+
+#panel .content .right {
+	border-right: 1px solid #333;
+}
+
+#panel .content .middle {
+	width:1024px;
+}
+
+#panel .content .middle #LedgerEntered {
+	position:relative;
+	top:27px;
+	left:780px;
+}
+
+#panel .content .middle #LedgerPosted {
+	position:relative;
+	top:42px;
+	left:780px;
+}
+
+#panel .content .middle #LedgerDetail {
+	position:relative;
+	top:90px;
+	left:178px;
+	width:400px;
+}
+
+#panel .content .middle #LedgerDebit {
+	position:relative;
+	top:123px;
+	left:178px;
+}
+
+#panel .content .middle #LedgerCredit {
+	position:relative;
+	top:183px;
+	left:178px;
+}
+
+#panel .content .middle #LedgerDescription {
+	position:relative;
+	top:195px;
+	left:178px;
+	width:200px;
+}
+
+#panel .content .middle #LedgerAmount {
+	position:relative;
+	top:-21px;
+	left:795px;
+	width:130px;
+}
+
+#panel .content .middle #LedgerReconcile {
+	position:relative;
+	top:-41px;
+	left:910px;
+}
+
+#panel .content .middle #LedgerTaxable {
+	position:relative;
+	top:20px;
+	left:910px;
+}
+
+#panel .content .middle #LedgerButton {
+	position:relative;
+	top:75px;
+	left:685px;
+}
+
+#panel .content form {
+	margin: 0 0 10px 0;
+}
+
+#panel .content label {
+	float: left;
+	padding-top: 8px;
+	clear: both;
+	width: 225px;
+	display: block;
+}
+
+#panel .content input.field {
+	border: 1px #1A1A1A solid;
+	background: #414141;
+	margin-right: 5px;
+	margin-top: 4px;
+	width: 200px;
+	color: white;
+	height: 16px;
+}
+
+#panel .content input:focus.field {
+	background: #545454;
+}
+
+.input-group-xs > .form-control, .input-group-xs > .input-group-addon, .input-group-xs > .input-group-btn > .btn {
+	height: 20px;
+	padding: 3px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+}
+
+/** Override table, want a smaller excel format style**/
+.table-minified {
+	padding: 5px;
+}
+
+.table-minified > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+	padding: 5px;
+	vertical-align: middle;
+	border-top: 1px solid #ddd;
+}
+
+.form-control-minified {
+	display: block;
+	width: 100%;
+	height: 25px;
+	padding: 1px 2px;
+	font-size: 14px;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
