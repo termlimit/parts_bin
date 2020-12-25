@@ -1,5 +1,4 @@
 parts_bin.code-workspace
-config.php
-config/setup_local.php
+config/app.php
 vendor
 composer.phar
